@@ -12,15 +12,15 @@ class Solution {
             return 0;
         }
         
-        if(mem[start][j] != 0) {
-            return mem[start][j];
+        if(mem[nums.length-end-1][j] != 0) {
+            return mem[nums.length-end-1][j];
         }
         
         int value = 0;
         value = nums[start] * multipliers[j] + search(nums, multipliers, start+1, end, j+1);
         value = Math.max(value, nums[end] * multipliers[j] + search(nums, multipliers, start, end-1, j+1));
     
-        mem[start][j] = value;
+        mem[nums.length-end-1][j] = value;
         
         return value;
     }
