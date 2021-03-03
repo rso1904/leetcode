@@ -7,19 +7,16 @@ class Solution {
         
         for(int i=0; i < isWater.length; i++) {
             for(int j=0; j < isWater[i].length; j++) {
-                if(isWater[i][j] == 1)
+                if(isWater[i][j] == 1) {
                     pq.offer(new int[]{0, i, j});
+                    visited[i][j] = true;
+                }
             }
         }
         
         while(!pq.isEmpty()) {
             int[] item = pq.poll();
-            
-            if(visited[item[1]][item[2]])
-                continue;
-            
             res[item[1]][item[2]] = item[0];
-            visited[item[1]][item[2]] = true;
             
             for(int i=0; i < 4; i++) {
                 int x = dir[i][0] + item[1];
@@ -27,6 +24,7 @@ class Solution {
                 
                 if(x < isWater.length && x >=0 && y < isWater[0].length && y >= 0 && !visited[x][y]) {
                     pq.offer(new int[]{item[0]+1, x, y});
+                    visited[x][y] = true;
                 }
             }
         }
