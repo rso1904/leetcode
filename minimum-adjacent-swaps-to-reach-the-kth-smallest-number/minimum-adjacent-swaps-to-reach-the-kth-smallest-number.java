@@ -13,25 +13,25 @@ class Solution {
             nextPermutation(nums);
         }
         
-        int i = 0;
+        int i = ori.length-1;
         int j = 0;
         
-        while(i < ori.length) {
+        while(i >= 0) {
             j = i;
             
             while(ori[i] != nums[j]) {
-                j++;
+                j--;
             }
             
-            while(i < j) {
+            while(j < i) {
                 int temp = nums[j];
-                nums[j] = nums[j-1];
-                nums[j-1] = temp;
-                j--;
+                nums[j] = nums[j+1];
+                nums[j+1] = temp;
+                j++;
                 res++;
             }
             
-            i++;
+            i--;
         }
         
         return res;
