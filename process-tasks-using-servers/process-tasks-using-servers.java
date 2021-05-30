@@ -28,10 +28,10 @@ class Solution {
             
             if(!rq.isEmpty() && time >= tasks.length)
                 time = rq.peek()[2];
+            else if(sq.isEmpty())
+                time = rq.peek()[2];
             else
-                time++;
-            
-       //     System.out.println(time);
+                time++;            
         }
         
         return res;
