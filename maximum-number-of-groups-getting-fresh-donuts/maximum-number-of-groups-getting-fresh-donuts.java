@@ -27,10 +27,10 @@ class Solution {
             res += value;
         }
         
-        return res + dfs(batchSize, groups, count, 0);
+        return res + dfs(batchSize, count, 0);
     }
     
-    private int dfs(int batchSize, int[] groups, int[] count, int remain) {
+    private int dfs(int batchSize, int[] count, int remain) {
         if(map.get(Arrays.toString(count)) != null) {
             return map.get(Arrays.toString(count));
         }
@@ -42,7 +42,7 @@ class Solution {
                 count[i]--;
                 int newRemain = (remain + i) % batchSize;
                 int added = remain == 0 ? 1 : 0;
-                res = Math.max(res, dfs(batchSize, groups, count, newRemain) + added);
+                res = Math.max(res, dfs(batchSize, count, newRemain) + added);
                 count[i]++;
             }
         }
