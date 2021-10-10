@@ -8,8 +8,7 @@ class Solution {
         }
         
         for(int i=0; i < s.length(); i++) {            
-          //  System.out.println((s.length() - i) + " : " + k);
-            while(!stack.isEmpty() && s.charAt(i) < stack.peek() && (s.length() - i - 1) >= k) {
+            while(!stack.isEmpty() && s.charAt(i) < stack.peek() && (s.length() - i) > k) {
                 if(stack.peek() == letter) {
                     if(count[letter - 'a'] <= repetition) {
                         break;
