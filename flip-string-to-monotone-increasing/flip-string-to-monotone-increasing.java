@@ -47,7 +47,6 @@ class Solution {
         for(int i=0; i < s.length()-1; i++) {
             res = Math.min(res, left[0][i]+right[1][i+1]);
             res = Math.min(res, left[0][i]+right[0][i+1]);
-            res = Math.min(res, left[0][i]+right[1][i+1]);
         }
         
         res = Math.min(res, left[0][s.length()-1]);
