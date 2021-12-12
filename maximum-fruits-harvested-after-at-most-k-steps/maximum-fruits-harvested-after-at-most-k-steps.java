@@ -9,7 +9,6 @@ class Solution {
             if(index < fruits.length && fruits[index][0] == i) {
                 prefix[i] = i == 0 ? fruits[index][1] : prefix[i-1] + fruits[index][1];
                 index++;
-           //     System.out.println(i + " : " + prefix[i]);
             } else {
                 prefix[i] = i == 0 ? 0 : prefix[i-1];
             }
@@ -21,7 +20,7 @@ class Solution {
         
         int rightIndex = startPos + k;
         int leftIndex = startPos - k;
-  //      System.out.println(rightIndex + " : " + leftIndex);
+        
         int right = rightIndex;
         int left = startPos;
         
@@ -35,7 +34,6 @@ class Solution {
         left = leftIndex;
         
         while(left <= startPos) {
-         //       System.out.println(right + " : " + left + " : " + startPos + " : " + prefix[right] + " : " + (left - 1 >= 0 ? prefix[left-1] : 0));
             res = Math.max(res, prefix[right < max ? right : max-1] - (left - 1 >= 0 ? prefix[left-1] : 0));
             right += 1;
             left += 2;
