@@ -7,7 +7,7 @@ class Solution {
         mem = new int[mask+1];
         size = new int[numSlots+1];
         
-        return search(nums, 0, 0, numSlots);
+        return search(nums, 0, mask, numSlots);
     }
     
     private int search(int[] nums, int cur, int mask, int numSlots) {
@@ -24,7 +24,7 @@ class Solution {
             if(size[i] < 2) {
                 size[i]++;
                 
-                res = Math.max(res, search(nums, cur+1, mask + (int)Math.pow(3, i-1), numSlots) + (i & nums[cur]));
+                res = Math.max(res, search(nums, cur+1, mask - (int)Math.pow(3, i-1), numSlots) + (i & nums[cur]));
                 size[i]--;
             } 
         }
