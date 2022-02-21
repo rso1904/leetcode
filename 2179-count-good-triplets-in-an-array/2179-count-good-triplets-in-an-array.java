@@ -2,8 +2,8 @@ class Solution {
     public long goodTriplets(int[] nums1, int[] nums2) {
         long res = 0;
         List<Integer> list = new ArrayList<>();
-        int[] left = new int[nums1.length];
-        int[] right = new int[nums1.length];
+        long[] left = new long[nums1.length];
+        long[] right = new long[nums1.length];
         int[] pos = new int[nums1.length];
         
         for(int i=0; i < nums2.length; i++) {
@@ -25,7 +25,7 @@ class Solution {
         }
         
         for(int i=0; i < nums1.length; i++) {
-            res += (long)left[i] * (long)right[i];
+            res += left[i] * right[i];
         }
         
         return res;
