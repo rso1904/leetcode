@@ -25,7 +25,7 @@ class Solution {
         }
         
         for(int i=0; i < nums1.length; i++) {
-            res += (long)left[i] * right[i];
+            res += (long)left[i] * (long)right[i];
         }
         
         return res;
