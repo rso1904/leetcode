@@ -1,7 +1,7 @@
 class Solution {
     public String repeatLimitedString(String s, int repeatLimit) {
         PriorityQueue<Character> max = new PriorityQueue<>((a, b) -> b - a);
-        PriorityQueue<Character> temp = new PriorityQueue<>((a, b) -> b - a);
+        Queue<Character> temp = new LinkedList<>();
         int count = 0;
         StringBuilder sb = new StringBuilder();
         
