@@ -8,7 +8,7 @@ class Solution {
             int prev = stack.peek();
             int cur = nums[i];
             int gcd = gcd(prev, cur);
-      //      System.out.println(gcd);
+            
             while(gcd > 1) {
                 cur = lcm(prev, cur, gcd);
                 
@@ -20,7 +20,7 @@ class Solution {
                 prev = stack.peek();
                 gcd = gcd(prev, cur);
             }
-         //   System.out.println(cur);
+            
             stack.push(cur);
         }
         
