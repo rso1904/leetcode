@@ -25,15 +25,7 @@ class Solution {
         
         long[] w = dijstra(n, adjs, src1);
         long[] w1 = dijstra(n, adjs, src2);
-        /*
-        for(int i=0; i < w.length; i++) {
-            System.out.println(i + " : " + w[i]);
-        }
-        
-        for(int i=0; i < w1.length; i++) {
-            System.out.println("hi : " + i + " : " + w1[i]);
-        }
-        */
+
         long comp = w[src2] + w1[dest] < 0 ? Long.MAX_VALUE : w[src2] + w1[dest];
         long comp1 = w1[src1] + w[dest] < 0 ? Long.MAX_VALUE : w1[src1] + w[dest];
         
@@ -46,10 +38,9 @@ class Solution {
         
         if(res == w[dest] + w1[dest]) {
             long[] temp = dijstra(n, reverseAdjs, dest);
-      //      System.out.println("hi");
+            
             for(int i=0; i < w.length; i++) {
                 if(w[i] != Long.MAX_VALUE) {
-               //     System.out.println(i + " : " + w[i] + " : " + w1[i] + " : " + temp[i]);
                     if(w[i] != Long.MAX_VALUE && w1[i] != Long.MAX_VALUE && temp[i] != Long.MAX_VALUE) {
                         res = Math.min(res, w[i] + w1[i] + temp[i]);
                     }
