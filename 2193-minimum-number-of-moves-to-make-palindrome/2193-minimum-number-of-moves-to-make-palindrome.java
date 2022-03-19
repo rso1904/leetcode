@@ -1,21 +1,42 @@
 class Solution {
     public int minMovesToMakePalindrome(String s) {
-        StringBuilder sb = new StringBuilder(s);
-        int res = 0;
+        int res = Integer.MAX_VALUE;
+        int left = 0;
+        int right = s.length() - 1;
+        int count = 0;
+        char[] c = s.toCharArray();
         
-        while(sb.length() > 0) {
-            int index = sb.indexOf(sb.charAt(sb.length()-1)+"");
-            
-            if(index == sb.length() - 1) {
-                res += sb.length() / 2;
+        while(left < right) {
+            if(c[left] != c[right]) {
+                int index = right;
+                
+                while(c[index] != c[left]) {
+                    index--;
+                }
+                
+                if(index == left) {                 
+                    char temp = c[index];
+                    c[index] = c[index+1];
+                    c[index+1] = temp;
+                    count++;
+                } else {
+                    while(index < right) {
+                        char temp = c[index];
+                        c[index] = c[index+1];
+                        c[index+1] = temp;
+                        index++;
+                        count++;
+                    }
+                    
+                     left++;
+                    right--;
+                }
             } else {
-                res += index;
-                sb.deleteCharAt(index);
+                left++;
+                right--;
             }
-            
-            sb.deleteCharAt(sb.length()-1);
         }
         
-        return res;
+        return count;
     }
 }
