@@ -1,6 +1,5 @@
 class Solution {
     public int maxValueOfCoins(List<List<Integer>> piles, int k) {        
-        int res = 0;
         int[][] dp = new int[k+1][piles.size()];
         int[][] prefix = new int[piles.size()][k+1];
         
@@ -18,12 +17,10 @@ class Solution {
                     } else {
                         dp[j - n][i] = Math.max(dp[j-n][i], dp[j][i-1] + prefix[i][n]);
                     }
-               //     System.out.println(i + " : " + j + " : " + n + " : " + dp[j-n][i]);
-                    res = Math.max(res, dp[j-n][i]);
                 }
             }
         }
         
-        return res;
+        return dp[0][piles.size()-1];
     }
 }
