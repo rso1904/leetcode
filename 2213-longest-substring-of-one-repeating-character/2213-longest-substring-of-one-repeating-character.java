@@ -23,11 +23,11 @@ class SegementTree {
     private int[] rightIndex;
     
     public SegementTree(String s) {
-        maxSize = new int[5 * s.length()];
-        leftMost = new char[5 * s.length()];
-        rightMost = new char[5 * s.length()];
-        leftIndex = new int[5 * s.length()];
-        rightIndex = new int[5 * s.length()];
+        maxSize = new int[4 * s.length()];
+        leftMost = new char[4 * s.length()];
+        rightMost = new char[4 * s.length()];
+        leftIndex = new int[4 * s.length()];
+        rightIndex = new int[4 * s.length()];
     }
     
     public int getMaxSize(int index) {
