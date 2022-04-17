@@ -57,11 +57,11 @@ class Solution {
                     h2 = h[i][grid[0].length-1][0] - h[i][j][0];
                     h22 = h[i][grid[0].length-1][1] - h[i][j][1];
                 }
-         //       System.out.println(v1 + " : " + h1 + " : " + v2 + " : " + h2 + " : " + i + " : " + j + " : " + h[i][j]);
+                
                 int cur1 = getTwo(grid[i][j]);
                 int cur2 = getFive(grid[i][j]);
                 int value = Math.min(v1 + h1 + cur1, v11 + h11 + cur2);
-         //       System.out.println(v1 + " : " + h1 + " : " + cur1 + " : " + v11 + " : " +h11 + " : " + cur2 + " : " + value);
+         
                 res = Math.max(res, value);
                 
                 value = Math.min(v1 + h2 + cur1, v11 + h22+ cur2);
@@ -70,7 +70,6 @@ class Solution {
                 
                 value = Math.min(v2 + h1 + cur1, v22 + h11 + cur2);
                 res = Math.max(res, value);
-           //     System.out.println(i + " : " + j + " : " + v2 + " : " + h1 + " : " + value);
                 
                 value = Math.min(v2 + h2 + cur1, v22 + h22 + cur2);
                 res = Math.max(res, value);
