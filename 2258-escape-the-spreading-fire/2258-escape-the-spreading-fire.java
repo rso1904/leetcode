@@ -41,15 +41,13 @@ class Solution {
             System.out.println();
         } */
         
-        pq.offer(new int[]{0, 0, 0, fire[0][0] - 1});
+        pq.offer(new int[]{0, 0, 0, fire[0][0]});
         
         while(!pq.isEmpty()) {
             int[] cur = pq.poll();
             int[][] dir = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
             visited[cur[0]][cur[1]] = true;
-            
-       //     System.out.println(cur[0] + " : " + cur[1] + " : " + cur[2] + " : " + cur[3] + " : " + fire[cur[0]][cur[1]]);
-            
+                        
             if(cur[2] > fire[cur[0]][cur[1]]) {
                 continue;
             }
@@ -62,7 +60,6 @@ class Solution {
             }
             
             if(cur[0] == grid.length-1 && cur[1] == grid[0].length-1) {
-            //    System.out.println("hi" + " : " + cur[3]);
                 res = Math.max(res, Math.max(0, cur[3]));
                 continue;
             }
@@ -74,7 +71,7 @@ class Solution {
                 int nextY = cur[1] + dir[i][1];
                
                 if(nextX >= 0 && nextX < grid.length && nextY >= 0 && nextY < grid[0].length && !visited[nextX][nextY] && grid[nextX][nextY] == 0) {
-               //     System.out.println(nextX + " : " + nextY + " : " + (fire[nextX][nextY] - cur[2] - 1));
+                    
                     int value = fire[nextX][nextY] - cur[2] - 1;
                     
                     if(fire[cur[0]][cur[1]] < fire[nextX][nextY]) {
