@@ -25,13 +25,12 @@ class Solution {
             if(edges[cur] != -1 && !visited[edges[cur]]) {
                 q.offer(edges[cur]);
             }
-       //     System.out.println(cur + " : " + set.toString());
+            
             if(set.contains(edges[cur])) {
                 q.clear();
                 set.clear();
                 q.offer(edges[cur]);
                 
-         //       System.out.println("hi");
                 while(!q.isEmpty()) {
                     cur = q.poll();
                     set.add(cur);
